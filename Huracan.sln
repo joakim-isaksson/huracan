@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Huracan", "Huracan\Huracan.csproj", "{B872867F-5D2D-4258-83F5-0222A8C042E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSample", "ConsoleSample\ConsoleSample.csproj", "{F2BE3A47-A67F-4233-AFA4-5DC9494918BD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfSample", "WpfSample\WpfSample.csproj", "{5048F9F5-9B13-4D9E-A37F-421AB01B2EF1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{3E8241FF-0A96-4D10-B8BE-373F1898613B}"
@@ -21,10 +19,6 @@ Global
 		{B872867F-5D2D-4258-83F5-0222A8C042E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B872867F-5D2D-4258-83F5-0222A8C042E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B872867F-5D2D-4258-83F5-0222A8C042E2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2BE3A47-A67F-4233-AFA4-5DC9494918BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2BE3A47-A67F-4233-AFA4-5DC9494918BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2BE3A47-A67F-4233-AFA4-5DC9494918BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2BE3A47-A67F-4233-AFA4-5DC9494918BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5048F9F5-9B13-4D9E-A37F-421AB01B2EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5048F9F5-9B13-4D9E-A37F-421AB01B2EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5048F9F5-9B13-4D9E-A37F-421AB01B2EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
