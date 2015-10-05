@@ -18,14 +18,12 @@ namespace WpfSample
 
         void drawGrid(Layout layout)
         {
-            // Clear draw surface
             DrawSurface.Children.Clear();
 
-            // Create list of hexes
             List<Hex> hexes = new List<Hex>();
-            for (int y = 0; y < 10; ++y)
+            for (int y = -10; y < 10; ++y)
             {
-                for (int x = 0; x < 10; ++x)
+                for (int x = -10; x < 10; ++x)
                 {
                     hexes.Add(Hex.FromOffsetY(x, y));
                 }
@@ -48,21 +46,60 @@ namespace WpfSample
                 polygon.StrokeThickness = 1;
                 DrawSurface.Children.Add(polygon);
             }
+
+            // ===========================
+
+            hexes = Hex.FromOffsetY(0, 0).Ring(3);
+            fill = new SolidColorBrush(Colors.LightGreen);
+            foreach (Hex hex in hexes)
+            {
+                PointCollection points = new PointCollection();
+                Point[] corners = layout.Corners(hex);
+                foreach (Point p in corners)
+                {
+                    points.Add(new Point(p.X, p.Y));
+                }
+                Polygon polygon = new Polygon();
+                polygon.Points = points;
+                polygon.Stroke = stroke;
+                polygon.Fill = fill;
+                polygon.StrokeThickness = 1;
+                DrawSurface.Children.Add(polygon);
+            }
+
+            hexes = new List<Hex>();
+            hexes.Add(Hex.FromOffsetY(0, 0));
+            fill = new SolidColorBrush(Colors.Red);
+            foreach (Hex hex in hexes)
+            {
+                PointCollection points = new PointCollection();
+                Point[] corners = layout.Corners(hex);
+                foreach (Point p in corners)
+                {
+                    points.Add(new Point(p.X, p.Y));
+                }
+                Polygon polygon = new Polygon();
+                polygon.Points = points;
+                polygon.Stroke = stroke;
+                polygon.Fill = fill;
+                polygon.StrokeThickness = 1;
+                DrawSurface.Children.Add(polygon);
+            }
         }
 
         void ButtonDrawFlatGrid_Click(object sender, RoutedEventArgs e)
         {
             drawGrid(new Layout(Layout.Flat,
-                new Point(DrawSurface.ActualWidth / 10, DrawSurface.ActualWidth / 10),
-                new Point(0, 0)
+                new Point(DrawSurface.ActualWidth / 20, DrawSurface.ActualWidth / 20),
+                new Point(DrawSurface.ActualWidth / 2, DrawSurface.ActualHeight / 2)
             ));
         }
 
         void ButtonDrawPointyGrid_Click(object sender, RoutedEventArgs e)
         {
             drawGrid(new Layout(Layout.Pointy,
-                new Point(DrawSurface.ActualWidth / 10, DrawSurface.ActualWidth / 10),
-                new Point(0, 0)
+                new Point(DrawSurface.ActualWidth / 20, DrawSurface.ActualWidth / 20),
+                new Point(DrawSurface.ActualWidth / 2, DrawSurface.ActualHeight / 2)
             ));
         }
 

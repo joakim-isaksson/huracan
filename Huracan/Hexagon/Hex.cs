@@ -18,12 +18,10 @@ namespace Huracan.Hexagon
     //
 
     // TODO:
-    // Movement range
     // Pathfinding
     // Line of sight (field of view)
     // Spiral
     // Single Ring
-    // Rotation
     public class Hex
     {
         public static readonly Hex Zero = new Hex(0, 0, 0);
@@ -132,6 +130,86 @@ namespace Huracan.Hexagon
             int offset = (y % 2 == 0) ? 1 : -1;
             int q = x - (y + offset * (y & 1)) / 2;
             return new Hex(q, y, -q - y);
+        }
+
+        public List<Hex> Range(int n)
+        {
+            List<Hex> hexes = new List<Hex>();
+            for (int dx = -n; dx <= n; ++dx)
+            {
+                int dyMin = Math.Max(-n, -dx - n);
+                int dyMax = Math.Min(n, -dx + n);
+                for (int dy = dyMin; dy <= dyMax; ++dy)
+                {
+                    int dz = -dx - dy;
+                    hexes.Add(Add(new Hex(dx, dy, dz)));
+                }
+            }
+            return hexes;
+        }
+
+        public List<Hex> Rechable(int steps, List<Hex> blocked)
+        {
+            List<Hex> visited = new List<Hex>();
+            visited.Add(this);
+
+            List<List<Hex>> fringes = new List<List<Hex>>();
+            fringes.Add(new List<Hex>());
+            fringes[0].Add(this);
+
+            for (int step = 1; step <= steps; ++step)
+            {
+                fringes.Add(new List<Hex>());
+                foreach (Hex hex in fringes[step - 1])
+                {
+                    foreach (Hex unit in Orthanogal)
+                    {
+                        Hex candidate = hex.Add(unit);
+                        if (!blocked.Contains(candidate))
+                        {
+                            visited.Add(candidate);
+                            fringes[step].Add(candidate);
+                        }
+                    }
+                }
+            }
+
+            return visited;
+        }
+
+        public Hex Rotate(int degrees)
+        {
+            Hex hex = this;
+            if (degrees > 0)
+            {
+                for (int i = 0; i < degrees / 60; ++i)
+                {
+                    hex = new Hex(-hex.S, -hex.Q, -hex.R);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < Math.Abs(degrees / 60); ++i)
+                {
+                    hex = new Hex(-hex.R, -hex.S, -hex.Q);
+                }
+            }
+            return hex;
+        }
+
+        public List<Hex> Ring(int radius)
+        {
+            List<Hex> hexes = new List<Hex>();
+            Hex hex = Add(O4.Multiply(radius));
+            foreach (Hex unit in Orthanogal)
+            {
+                for (int i = 0; i < radius; ++i)
+                {
+                    hexes.Add(hex);
+                    hex = hex.Add(unit);
+                }
+            }
+            return hexes;
         }
 
         public override bool Equals(object obj)
