@@ -16,12 +16,6 @@ namespace Huracan.Hexagon
     //       \________/            O3 `\. ./' O4
     //     D4    O4    D5                ' D4
     //
-
-    // TODO:
-    // Pathfinding
-    // Line of sight (field of view)
-    // Spiral
-    // Single Ring
     public class Hex
     {
         public static readonly Hex Zero = new Hex(0, 0, 0);
@@ -208,6 +202,17 @@ namespace Huracan.Hexagon
                     hexes.Add(hex);
                     hex = hex.Add(unit);
                 }
+            }
+            return hexes;
+        }
+
+        public List<Hex> Spiral(int radius)
+        {
+            List<Hex> hexes = new List<Hex>();
+            hexes.Add(this);
+            for (int k = 1; k <= radius; ++k)
+            {
+                hexes.AddRange(Ring(k));
             }
             return hexes;
         }

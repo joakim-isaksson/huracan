@@ -49,29 +49,12 @@ namespace WpfSample
 
             // ===========================
 
-            hexes = Hex.FromOffsetY(0, 0).Ring(3);
-            fill = new SolidColorBrush(Colors.LightGreen);
+            hexes = Hex.FromOffsetY(0, 0).Spiral(4);
+            byte color = 0;
             foreach (Hex hex in hexes)
             {
-                PointCollection points = new PointCollection();
-                Point[] corners = layout.Corners(hex);
-                foreach (Point p in corners)
-                {
-                    points.Add(new Point(p.X, p.Y));
-                }
-                Polygon polygon = new Polygon();
-                polygon.Points = points;
-                polygon.Stroke = stroke;
-                polygon.Fill = fill;
-                polygon.StrokeThickness = 1;
-                DrawSurface.Children.Add(polygon);
-            }
-
-            hexes = new List<Hex>();
-            hexes.Add(Hex.FromOffsetY(0, 0));
-            fill = new SolidColorBrush(Colors.Red);
-            foreach (Hex hex in hexes)
-            {
+                color += 3;
+                fill = new SolidColorBrush(Color.FromRgb(color, color, color));
                 PointCollection points = new PointCollection();
                 Point[] corners = layout.Corners(hex);
                 foreach (Point p in corners)
