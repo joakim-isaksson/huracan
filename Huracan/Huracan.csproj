@@ -43,10 +43,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Character\Attributes.cs" />
+    <Compile Include="Character\Character.cs" />
     <Compile Include="Hexagon\FractionalHex.cs" />
     <Compile Include="Hexagon\Hex.cs" />
     <Compile Include="Hexagon\Layout.cs" />
     <Compile Include="Hexagon\Orientation.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\Slot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

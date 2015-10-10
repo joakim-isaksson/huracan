@@ -13,8 +13,16 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Canvas x:Name="DrawSurface" Margin="10" Background="White" Grid.Column="1"/>
-            <Button x:Name="ButtonDrawFlatGrid" Content="Flat Grid" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="238" Click="ButtonDrawFlatGrid_Click" Background="#FFC9C9C9"/>
-            <Button x:Name="ButtonDrawPointyGrid" Content="Pointy Grid" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="238" Click="ButtonDrawPointyGrid_Click" Background="#FFC9C9C9"/>
+            <Button x:Name="RangeFlat" Content="Range (Flat)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="238" Background="#FFC9C9C9" Click="RangeFlat_Click"/>
+            <Button x:Name="RangePointy" Content="Range (Pointy)" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="238" Background="#FFC9C9C9" Click="RangePointy_Click"/>
+            <Button x:Name="Ring" Content="Ring" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" Width="238" Background="#FFC9C9C9" Click="Ring_Click"/>
+            <Button x:Name="Spiral" Content="Spiral" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="238"  Background="#FFC9C9C9" Click="Spiral_Click"/>
+            <Button x:Name="Rectangle" Content="Rectangle" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="238"  Background="#FFC9C9C9" Click="Rectangle_Click"/>
+            <Button x:Name="Line" Content="Line" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="238"  Background="#FFC9C9C9" Click="Line_Click"/>
+            <Button x:Name="LineOfSight" Content="Line Of Sight" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="238"  Background="#FFC9C9C9" Click="LineOfSight_Click"/>
+            <Button x:Name="Rotate" Content="Rotate" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Width="238"  Background="#FFC9C9C9" Click="Rotate_Click"/>
+            <Button x:Name="Reachable" Content="Reachable" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Width="238"  Background="#FFC9C9C9" Click="Reachable_Click"/>
+            <Button x:Name="Polygon" Content="Polygon" HorizontalAlignment="Left" Margin="10,235,0,0" VerticalAlignment="Top" Width="238"  Background="#FFC9C9C9" Click="Polygon_Click"/>
         </Grid>
     </Grid>
 </Window>

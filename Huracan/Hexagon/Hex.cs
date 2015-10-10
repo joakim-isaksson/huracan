@@ -17,9 +17,6 @@ namespace Huracan.Hexagon
     //     D4    O4    D5                ' D4
     //
     // TODO:
-    // - Line of sight
-    // - Crop
-    // - Rectangle
     // - Path to
     // - Comment public methods
     public class Hex
@@ -96,6 +93,31 @@ namespace Huracan.Hexagon
             return line;
         }
 
+        // TODO: Something weird is happening here
+        public static HashSet<Hex> Polygon(List<Hex> corners)
+        {
+            HashSet<Hex> polygon = new HashSet<Hex>();
+            for (int from = 0; from < corners.Count; ++from)
+            {
+                int to = (from == corners.Count - 1) ? 0 : from + 1;
+                foreach (Hex h in corners[from].LineTo(corners[to]))
+                {
+                    polygon.Add(h);
+                }
+            }
+            return polygon;
+        }
+
+        public bool LineOfSight(Hex hex, List<Hex> blocked)
+        {
+            List<Hex> line = LineTo(hex);
+            foreach (Hex h in line)
+            {
+                if (blocked.Contains(h)) return false;
+            }
+            return true;
+        }
+
         public Point ToOffsetQ()
         {
             int offset = (Q % 2 == 0) ? 1 : -1;
@@ -123,6 +145,32 @@ namespace Huracan.Hexagon
         public static Hex FromOffsetY(Point point)
         {
             return FromOffsetY(point.X, point.Y);
+        }
+
+        public static List<Hex> RectangleX(int x1, int y1, int x2, int y2)
+        {
+            List<Hex> hexes = new List<Hex>();
+            for (int y = y1; y < y2; ++y)
+            {
+                for (int x = x1; x < x2; ++x)
+                {
+                    hexes.Add(FromOffsetX(x, y));
+                }
+            }
+            return hexes;
+        }
+
+        public static List<Hex> RectangleY(int x1, int y1, int x2, int y2)
+        {
+            List<Hex> hexes = new List<Hex>();
+            for (int y = y1; y < y2; ++y)
+            {
+                for (int x = x1; x < x2; ++x)
+                {
+                    hexes.Add(FromOffsetY(x, y));
+                }
+            }
+            return hexes;
         }
 
         public static Hex FromOffsetY(int x, int y)
