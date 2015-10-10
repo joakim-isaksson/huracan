@@ -3,20 +3,9 @@ using System.Windows;
 
 namespace Huracan.Hexagon
 {
+    // TODO: Comment public methods
     public class Layout
     {
-        public static readonly Orientation Pointy = new Orientation(
-            Math.Sqrt(3.0), Math.Sqrt(3.0) / 2.0, 0.0, 3.0 / 2.0,
-            Math.Sqrt(3.0) / 3.0, -1.0 / 3.0, 0.0, 2.0 / 3.0,
-            0.5
-        );
-
-        public static readonly Orientation Flat = new Orientation(
-            3.0 / 2.0, 0.0, Math.Sqrt(3.0) / 2.0, Math.Sqrt(3.0),
-            2.0 / 3.0, 0.0, -1.0 / 3.0, Math.Sqrt(3.0) / 3.0,
-            0.0
-        );
-
         public readonly Orientation Orientation;
         public readonly Point Size;
         public readonly Point Origin;

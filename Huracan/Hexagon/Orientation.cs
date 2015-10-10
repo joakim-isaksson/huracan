@@ -1,8 +1,22 @@
-﻿
+﻿using System;
+
 namespace Huracan.Hexagon
 {
+    // TODO: Comment public methods
     public class Orientation
     {
+        public static readonly Orientation Pointy = new Orientation(
+            Math.Sqrt(3.0), Math.Sqrt(3.0) / 2.0, 0.0, 3.0 / 2.0,
+            Math.Sqrt(3.0) / 3.0, -1.0 / 3.0, 0.0, 2.0 / 3.0,
+            0.5
+        );
+
+        public static readonly Orientation Flat = new Orientation(
+            3.0 / 2.0, 0.0, Math.Sqrt(3.0) / 2.0, Math.Sqrt(3.0),
+            2.0 / 3.0, 0.0, -1.0 / 3.0, Math.Sqrt(3.0) / 3.0,
+            0.0
+        );
+
         public readonly double F0;
         public readonly double F1;
         public readonly double F2;
@@ -13,7 +27,7 @@ namespace Huracan.Hexagon
         public readonly double B3;
         public readonly double StartAngle;
 
-        public Orientation(double f0, double f1, double f2, double f3, double b0, double b1, double b2, double b3, double startAngle)
+        Orientation(double f0, double f1, double f2, double f3, double b0, double b1, double b2, double b3, double startAngle)
         {
             F0 = f0;
             F1 = f1;

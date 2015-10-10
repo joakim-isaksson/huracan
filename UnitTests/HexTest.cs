@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
 {
+    // TODO: Add test to all public methods
     [TestClass]
     public class HexTest
     {
@@ -35,7 +36,5 @@ namespace UnitTests
         {
             Assert.AreEqual(3, Hex.Zero.Distance(Hex.O0.Multiply(3)));
         }
-
-        // TODO
     }
 }

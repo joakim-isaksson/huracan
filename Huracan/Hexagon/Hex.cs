@@ -16,6 +16,12 @@ namespace Huracan.Hexagon
     //       \________/            O3 `\. ./' O4
     //     D4    O4    D5                ' D4
     //
+    // TODO:
+    // - Line of sight
+    // - Crop
+    // - Rectangle
+    // - Path to
+    // - Comment public methods
     public class Hex
     {
         public static readonly Hex Zero = new Hex(0, 0, 0);
